@@ -116,3 +116,4 @@ git clone https://github.com/Shanki21/meditrack.git
 
 3. Open the project in IntelliJ IDEA (or any IDE), ensure the Project SDK is set to Java 21
 4. Run `Main.java`
+
