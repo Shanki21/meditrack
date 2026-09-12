@@ -1,0 +1,31 @@
+1. Why start with Person as an abstract-ish base rather than writing Doctor and Patient
+separately from scratch ?
+
+Doctors and patients share fields — name, age, contactNumber, address, id — and share
+behavior like getters/setters and maybe a displayInfo() method. If you didn't factor
+this out, you'd duplicate the same fields and validation logic in both classes. Person
+becomes the single place that logic lives — the DRY principle in action, and it sets
+up the inheritance requirement from the brief.
+
+2.should displayInfo() stay concrete (with a default body, optionally overridden) or
+become abstract (forcing every subclass to define it from scratch)?
+
+keep displayInfo() concrete with the shared fields, since Doctor and Patient genuinely
+share that base info (id, name, age, contact, address) and it'd be wasteful to retype
+those print lines in both subclasses. Then each subclass overrides it, calls
+super.displayInfo(), and appends its own fields.
+
+3.Should Person be abstract?
+
+Making Person abstract enforces at compile-time that "a bare Person" is a meaningless
+concept in this domain — it only exists as Doctor or Patient.
+
+4. What is dynamic dispatch ?
+
+he JVM decides which override to run based on the actual object type at runtime, not
+the reference type at compile time. This is exactly what the brief means by
+"demonstrate dynamic dispatch" under polymorphism.
+
+
+
+
